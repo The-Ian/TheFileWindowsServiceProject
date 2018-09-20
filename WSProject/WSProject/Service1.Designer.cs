@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Timers.Timer();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timer1)).BeginInit();
             // 
             // fileSystemWatcher1
             // 
@@ -43,18 +43,21 @@
             // 
             // timer1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000D;
+            this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Elapsed);
             // 
             // Service1
             // 
             this.ServiceName = "Service1";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timer1)).EndInit();
 
         }
 
         #endregion
 
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Timers.Timer timer1;
     }
 }
